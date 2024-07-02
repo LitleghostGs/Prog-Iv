@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <title>Usuários</title>
+</head>
+<body>
+    <nav class="navbar navbar-light justify-content-center fs-3 mb-5 bg-primary">Crud com a minha API</nav>
+    <div class="container">
+        <a href="/novo" class="btn btn-primary mb-3">Novo Usuário</a>
+        <table class="table table-hover text-center">
+            <thead class="table-primary">
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($users as $user): ?>
+                <tr>
+                    <td><?= $user['id'] ?></td>
+                    <td><?= $user['nome'] ?></td>
+                    <td><?= $user['email'] ?></td>
+                    <td>
+                        <a href="/alterar/<?= $user['id'] ?>" class="link-primary">Editar</a>
+                        <a href="/excluir/<?= $user['id'] ?>" class="link-danger">Excluir</a>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <script src="/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+</body>
+</html>
